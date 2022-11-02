@@ -17,7 +17,7 @@ exports.getOne = async (req, res, next) => {
         return res.status(500).json(error);
     }
 };
-
+asd;
 exports.createOne = async (req, res, next) => {
     try {
         const USER_MODEL = {
