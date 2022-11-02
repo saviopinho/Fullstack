@@ -1,7 +1,6 @@
 const express = require('express');
 
 const sequelize = require('./util/database');
-const User = require('./models/users');
 
 const app = express();
 
@@ -26,8 +25,11 @@ app.use('/users', require('./routes/users'));
 (async () => {
     try {
         await sequelize.sync({ force: false });
-        console.log('test');
-        app.listen(process.env.EXTERNAL_PORT || 3001);
+        const port = process.env.EXTERNAL_PORT || 3001;
+
+        app.listen(port, () => {
+            console.log('connected to port:', port);
+        });
     } catch (error) {
         console.error(error);
     }

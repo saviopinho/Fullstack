@@ -2,8 +2,9 @@ version: '3.8'
 
 services:
     node_backend:
-        container_name: node_backend_cubos
-        image: node_backend_cubos:0.0.4
+        container_name: node_cubos_container
+        image: node_cubos:0.0.2
+        restart: always
         build:
             context: .
         ports:
@@ -20,6 +21,7 @@ services:
     node_db:
         container_name: node_cubos_db
         image: 'postgres:12'
+        restart: always
         ports:
             - '5432:5432'
         environment:
