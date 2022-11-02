@@ -2,30 +2,30 @@ version: '3.8'
 
 services:
     node_backend:
-        container_name: node_tabnine
-        image: node_tabnine:0.0.4
+        container_name: node_backend_cubos
+        image: node_backend_cubos:0.0.4
         build:
             context: .
         ports:
             - '3001:3001'
         environment:
             - EXTERNAL_PORT=3001
-            - PGDATABASE=tabnine_db
-            - PGUSER=francesco
+            - PGDATABASE=cubos_db
+            - PGUSER=savio_cubos
             - PGPASSWORD=12345
             - PGHOST=node_db
         depends_on:
             - node_db
 
     node_db:
-        container_name: node_db
+        container_name: node_cubos_db
         image: 'postgres:12'
         ports:
             - '5432:5432'
         environment:
-            - POSTGRES_USER=francesco
+            - POSTGRES_USER=savio_cubos
             - POSTGRES_PASSWORD=12345
-            - POSTGRES_DB=tabnine_db
+            - POSTGRES_DB=cubos_db
         volumes:
             - nps_data:/var/lib/postgresql/data
 
