@@ -21,9 +21,9 @@ exports.getOne = async (req, res, next) => {
 exports.createOne = async (req, res, next) => {
     try {
         const USER_MODEL = {
-            username: req.body.username,
+            name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            phone: req.body.phone,
         };
 
         try {
@@ -41,9 +41,9 @@ exports.createOne = async (req, res, next) => {
 exports.updateOne = async (req, res, next) => {
     try {
         const USER_MODEL = {
-            username: req.body.username,
+            name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            phone: req.body.phone,
         };
 
         try {

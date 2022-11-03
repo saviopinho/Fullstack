@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../util/database');
+const db = require('../../db/postgres');
 
 const User = db.define('users', {
     id: {
@@ -8,7 +8,7 @@ const User = db.define('users', {
         allowNull: false,
         primaryKey: true,
     },
-    username: {
+    name: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
@@ -17,7 +17,7 @@ const User = db.define('users', {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    password: {
+    phone: {
         type: Sequelize.STRING,
         allowNull: false,
     },
