@@ -2,7 +2,7 @@ FROM node:14
 
 EXPOSE 3001
 
-WORKDIR /src
+WORKDIR /usr/src/api
 
 RUN npm install i npm@latest -g 
 
@@ -12,4 +12,6 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "app/index.js"]
+CMD ["sh", "-c", "npm run start"]
+# CMD ["node", "app/index.js"]
+

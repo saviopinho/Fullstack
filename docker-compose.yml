@@ -1,23 +1,6 @@
 version: '3.8'
 
 services:
-    node_backend:
-        container_name: node_cubos_container
-        image: node_cubos:0.0.2
-        restart: always
-        build:
-            context: .
-        ports:
-            - '3001:3001'
-        environment:
-            - EXTERNAL_PORT=3001
-            - PGDATABASE=cubos_db
-            - PGUSER=savio_cubos
-            - PGPASSWORD=12345
-            - PGHOST=node_db
-        depends_on:
-            - node_db
-
     node_db:
         container_name: node_cubos_db
         image: 'postgres:12'
@@ -30,6 +13,39 @@ services:
             - POSTGRES_DB=cubos_db
         volumes:
             - nps_data:/var/lib/postgresql/data
+
+    node_backend:
+        container_name: node_cubos_container
+        image: node-api-prod:1.0.0
+        restart: unless-stopped
+        build:
+            context: .
+            # context: client
+            # target: production
+            # dockerfile: Dockerfile
+        ports:
+            - '3001:3001'
+        environment:
+            - EXTERNAL_PORT=3001
+            - PGDATABASE=cubos_db
+            - PGUSER=savio_cubos
+            - PGPASSWORD=12345
+            - PGHOST=node_db
+        depends_on:
+            - node_db
+
+    # react_frontend:
+    #     container_name: node_cubos_container
+    #     image: react-client-prod:1.0.0
+    #     restart: unless-stopped
+    #     build:
+    #         # context: client
+    #         # target: production
+    #         # dockerfile: Dockerfile
+    #     ports:
+    #         - '8080:8081'
+    #     depends_on:
+    #         - node_backend
 
 volumes:
     nps_data: {}

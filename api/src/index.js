@@ -1,6 +1,10 @@
+// if (process.env.NODE_ENV !== 'production') {
+//     require('dotenv').config();
+// }
+
 const express = require('express');
 
-const sequelize = require('./util/database');
+const sequelize = require('../db/postgres');
 
 const app = express();
 

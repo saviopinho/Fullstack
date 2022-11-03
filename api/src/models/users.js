@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../util/database');
+const db = require('../../db/postgres');
 
 const User = db.define('users', {
     id: {
