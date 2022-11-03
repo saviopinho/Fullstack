@@ -9,13 +9,13 @@ function UserOperations({ id, onDeleteUser }) {
     return (
         <div>
             <Link to={`/update/${id}`}>
-                <button className="btn btn-edit">Edit</button>
+                <button className="btn btn-edit">Editar</button>
             </Link>
             <button className="btn btn-delete" onClick={deleteUserHandler}>
-                Delete
+                Deletar
             </button>
             <Link to={`/view/${id}`}>
-                <button className="btn btn-view">View</button>
+                <button className="btn btn-view">Abrir</button>
             </Link>
         </div>
     );

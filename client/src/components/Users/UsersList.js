@@ -11,10 +11,10 @@ const UsersList = ({ items, onDeleteUser }) => {
             <table className="styled-table">
                 <thead>
                     <tr>
-                        <th style={{ textAlign: 'center' }}>Name</th>
+                        <th style={{ textAlign: 'center' }}>Nome</th>
                         <th style={{ textAlign: 'center' }}>Email</th>
-                        <th style={{ textAlign: 'center' }}>Phone</th>
-                        <th style={{ textAlign: 'center' }}>Action</th>
+                        <th style={{ textAlign: 'center' }}>Telefone</th>
+                        <th style={{ textAlign: 'center' }}>Ações</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -21,6 +21,8 @@ const AddEditUser = () => {
     useEffect(() => {
         if (id) {
             getSingleUser(id);
+        } else {
+            setState(initialState);
         }
     }, [id]);
 
@@ -76,7 +78,7 @@ const AddEditUser = () => {
                 updateUser(state, id);
             }
 
-            setTimeout(() => navigate('/'), 1000);
+            setTimeout(() => navigate('/'), 500);
         }
     };
 
@@ -121,7 +123,7 @@ const AddEditUser = () => {
                     onChange={handleInputChange}
                 />
 
-                <input type="submit" value={id ? 'Update' : 'Add'} />
+                <input type="submit" value={id ? 'Atualizar' : 'Adicionar'} />
             </form>
         </div>
     );

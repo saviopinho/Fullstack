@@ -30,10 +30,10 @@ const View = () => {
         <div style={{ marginTop: '150px' }}>
             <div className="card">
                 <div className="card-header">
-                    <p>User Contact Detail</p>
+                    <p>Detalhes Contato</p>
                 </div>
                 <div className="container">
-                    <strong>Name: </strong>
+                    <strong>Nome: </strong>
                     <span>{user && user.name} </span>
                     <br />
                     <br />
@@ -41,12 +41,12 @@ const View = () => {
                     <span>{user && user.email} </span>
                     <br />
                     <br />
-                    <strong>Contact: </strong>
+                    <strong>Telefone: </strong>
                     <span>{user && user.phone} </span>
                     <br />
                     <br />
                     <Link to="/">
-                        <button className="btn btn-edit">Go Back</button>
+                        <button className="btn btn-edit">Voltar</button>
                     </Link>
                 </div>
             </div>
