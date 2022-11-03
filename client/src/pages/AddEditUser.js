@@ -45,40 +45,52 @@ const AddEditUser = () => {
     };
 
     const addUser = async (data) => {
-        const response = await axios.post(
-            process.env.REACT_APP_API_USERS,
-            data
-        );
+        const response = await axios
+            .post(process.env.REACT_APP_API_USERS, data)
+            .then((response) => response)
+            .catch((error) => error.response);
 
         if (response.status === 201) {
             toast.success('Usuario Adicionado com Sucesso!');
         }
+
+        return response;
     };
 
     const updateUser = async (data, id) => {
-        const response = await axios.put(
-            `${process.env.REACT_APP_API_USERS}/${id}`,
-            data
-        );
+        const response = await axios
+            .put(`${process.env.REACT_APP_API_USERS}/${id}`, data)
+            .then((response) => response)
+            .catch((error) => error.response);
 
         if (response.status === 200) {
             toast.success('Usuario Atualizado com Sucesso!');
         }
+
+        return response;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
+        let response = '';
+
         if (!name || !email || !phone) {
-            toast.error('Please provide value in each input field');
+            toast.error('Por favor, preencha os campos');
         } else {
             if (!id) {
-                addUser(state);
+                response = await addUser(state);
             } else {
-                updateUser(state, id);
+                response = await updateUser(state, id);
             }
 
-            setTimeout(() => navigate('/'), 500);
+            if (response.status !== 500) {
+                setTimeout(() => navigate('/'), 500);
+            } else {
+                toast.error(
+                    `Erro ao adicionar usuario: ${response.data?.errors[0].message.toUpperCase()}`
+                );
+            }
         }
     };
 
