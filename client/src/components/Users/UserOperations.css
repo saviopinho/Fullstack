@@ -1,0 +1,25 @@
+.btn {
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #81a135;
+}
+
+.btn-delete {
+    background-color: #f44336;
+}
+
+.btn-view {
+    background-color: #9ed9db;
+    color: black;
+}

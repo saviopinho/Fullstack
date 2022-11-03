@@ -1,34 +1,30 @@
-import { useState } from 'react';
-import Expenses from './components/Expenses/Expenses';
-import NewExpense from './components/NewExpense/NewExpense';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import Home from './pages/Home';
+import View from './pages/View';
+import About from './pages/About';
+import AddEditUser from './pages/AddEditUser';
 
-const moment = require('moment');
+import Header from './components/UI/Header';
 
-const DUMMY_EXPENSES = [
-    {
-        id: 'e1',
-        title: 'CAR EXPENSE',
-        amount: 123.89,
-        date: moment('2022-05-15'),
-    },
-];
+import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 
 const App = () => {
-    const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-
-    const addExpenseHandler = expense => {
-        console.log('In App.js');
-        console.log('expense:', expense);
-        setExpenses(prevExpenses => {
-            return [expense, ...prevExpenses];
-        });
-    };
-
     return (
-        <div>
-            <NewExpense onAddExpense={addExpenseHandler} />
-            <Expenses items={expenses} />
-        </div>
+        <Router>
+            <div className="App">
+                <Header />
+                <ToastContainer />
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/add" element={<AddEditUser />} />
+                    <Route path="/view/:id" element={<View />} />
+                    <Route path="/update/:id" element={<AddEditUser />} />
+                </Routes>
+            </div>
+        </Router>
     );
 };
 
