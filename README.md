@@ -1,4 +1,1 @@
-# Node-Tabnine
-
-Livestream Video:
-https://youtu.be/HhkwLJCZw2Y
+Full stack example app connecting the frontend with the backend API made in express
