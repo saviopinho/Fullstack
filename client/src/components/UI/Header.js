@@ -23,7 +23,7 @@ function Header() {
 
     return (
         <div className="header">
-            <p className="logo">Teste Cubos - CRUD</p>
+            <p className="logo">Aplicativo Fullstack Integrado com API</p>
             <div className="header-right">
                 <Link to="/">
                     <p
